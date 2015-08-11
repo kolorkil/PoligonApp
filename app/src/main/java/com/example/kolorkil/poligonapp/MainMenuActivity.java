@@ -1,14 +1,19 @@
 package com.example.kolorkil.poligonapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class MainMenuActivity extends ActionBarActivity {
+
+    int x=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,5 +46,22 @@ public class MainMenuActivity extends ActionBarActivity {
     public void openConverterActivity(View view) {
         Intent intent = new Intent(this, UnitConverterActivity.class);
         startActivity(intent);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if(x==0){
+            Toast toast = Toast.makeText(
+                    getApplicationContext(),
+                    "Jeśli chcesz wyjść naciśnij 'Wstecz' ponownie",
+                    Toast.LENGTH_SHORT);
+            toast.show();
+            x++;
+        }
+        else{
+            System.exit(0);
+        }
+        Log.d("Tu dac package", "testowy komentarzownik");
     }
 }
