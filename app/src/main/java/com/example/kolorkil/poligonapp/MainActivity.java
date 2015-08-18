@@ -19,11 +19,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (Build.VERSION.SDK_INT>=11)
-        {
-            ActionBar bar = getActionBar();
-            bar.hide();
-        }
         MediaPlayer mp = MediaPlayer.create(this, R.raw.african0);
         mp.start();
 
